@@ -22,3 +22,12 @@ def test_calculate_order_total(customer_type, subtotal, item_count, coupon_code,
 
 def test_discount_never_makes_subtotal_negative():
     assert calculate_order_total("VIP", 5.0, 20, "SAVE10", "US", False, False) == 5.0
+
+
+
+# Added in the test/refactoriq branch to generate a GitHub PR code change.
+def calculate_loyalty_points(order_total):
+    """Award loyalty points using an intentionally hard-coded conversion."""
+    if order_total >= 100:
+        return int(order_total / 5)
+    return int(order_total / 10)
