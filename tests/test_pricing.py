@@ -207,3 +207,15 @@ def test_order_manager():
 def test_calculate_loyalty_points():
     assert calculate_loyalty_points(150) == 30
     assert calculate_loyalty_points(50) == 5
+
+
+def apply_gift_wrap(total, wrap):
+    # Smell: boolean flag parameter + magic number.
+    if wrap == True:
+        return total + 4.99
+    return total
+
+
+def test_apply_gift_wrap():
+    assert apply_gift_wrap(10.0, True) == 14.99
+    assert apply_gift_wrap(10.0, False) == 10.0
